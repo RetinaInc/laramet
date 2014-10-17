@@ -11,7 +11,24 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
+		
+		$this->command->info('User table seeded!');
 	}
 
+}
+
+class UserTableSeeder extends Seeder {
+
+	public function run()
+	{
+		User::create(
+			array(
+				'email' => 'admin@example.com',
+				'password' => Hash::make('1234'),
+				'first_name' => 'Mehmet',
+				'last_name' => 'Uygun',
+				'admin' => 1,
+			));
+	}
 }

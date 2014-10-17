@@ -11,13 +11,27 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
 Route::group(array('prefix' => 'admin'), function()
 {
-	Route::get('login', 'AdminLoginController@loginView');
-	Route::post('login', 'AdminLoginController@loginAction');
+	Route::get('login', 'AdminAuthController@getLogin');
+	Route::post('login', 'AdminAuthController@postLogin');
+
+	Route::get('logout', function()
+	{
+		Auth::logout();
+		
+		return Redirect::to('admin/login');
+	});
+
+	Route::get('reminder', 'AdminRemindersController@getRemind');
+	Route::post('reminder', array('before' => 'csrf', 'uses' => 'AdminRemindersController@postRemind'));
+
+	Route::get('reset/{token}', 'AdminRemindersController@getReset');
+	Route::post('reset/{token}', 'AdminRemindersController@postReset');
+
+	Route::group(array('before' => 'authAdmin|admin'), function()
+	{
+		Route::get('dashboard', 'AdminController@getDashboard');
+	});
 });
+

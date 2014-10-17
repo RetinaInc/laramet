@@ -1,6 +1,7 @@
 <?php
 
-class BaseController extends Controller {
+class AdminBaseController extends Controller 
+{
 
 	/**
      * The layout that should be used for responses.
