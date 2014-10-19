@@ -4,6 +4,6 @@
 			<span aria-hidden="true">&times;</span>
 			<span class="sr-only">Close</span>
 		</button>
-		{{ Session::get('alert') }}
+		<i class="fa fa-info-circle fa-lg"></i> {{ Session::get('alert') }}
 	</div>
 @endif

@@ -7,6 +7,7 @@
 	<title>@yield('title', 'Laramet - Administrator')</title>
 	<!-- Bootstrap CSS -->
 	{{ HTML::style('bootstrap3/css/bootstrap.min.css') }}
+	{{ HTML::style('font-awesome-4.2.0/css/font-awesome.min.css') }}
 	@yield('css')
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,7 +18,7 @@
 </head>
 <body>
     @yield('header')
-    <div class="container">
+    <div class="container" id="container">
         @yield('content')
     </div>
     {{ HTML::script('bootstrap3/js/jquery-1.11.1.min.js') }}

@@ -7,11 +7,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="{{url('/admin/dashboard')}}">{{ trans('admin.project_name')}}</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{url('/admin')}}"><i class="glyphicon glyphicon-home"></i> {{ trans('admin.home') }}</a></li>                       
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-wrench"></i> {{ trans('admin.system') }}</a>
@@ -28,13 +27,25 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('admin/user/profile')}}">{{ trans('admin.edit_profile') }}</a></li>
-                        <li><a href="{{url('admin/user/password')}}">{{ trans('admin.change_password') }}</a></li>
+                        <li>
+                            <a href="{{url('admin/account')}}">
+                                <i class="fa fa-fw fa-edit"></i> {{ trans('common.edit_account') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/password')}}">
+                                <i class="fa fa-fw fa-key"></i> {{ trans('common.change_password') }}
+                            </a>
+                        </li>
                         <li class="divider"></li>
-                        <li><a href="{{ url('admin/logout') }}">{{ trans('admin.logout') }}</a></li>
+                        <li>
+                            <a href="{{ url('admin/logout') }}">
+                                <i class="fa fa-fw fa-power-off"></i> {{ trans('common.logout') }}
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </div>

@@ -13,10 +13,16 @@
 
 Route::group(array('prefix' => 'admin'), function()
 {
+	Route::get('account', 'AdminSettingController@getAccount');
+	Route::post('account', 'AdminSettingController@postAccount');
+
+	Route::get('password', 'AdminSettingController@getPassword');
+	Route::post('password', 'AdminSettingController@postPassword');
+
 	Route::get('login', 'AdminAuthController@getLogin');
 	Route::post('login', 'AdminAuthController@postLogin');
 
-	Route::get('logout', function()
+	Route::get('logoutlogout', function()
 	{
 		Auth::logout();
 		
@@ -33,5 +39,7 @@ Route::group(array('prefix' => 'admin'), function()
 	{
 		Route::get('dashboard', 'AdminController@getDashboard');
 	});
+
+	Route::when('*', 'csrf', array('post', 'put', 'delete'));
 });
 
